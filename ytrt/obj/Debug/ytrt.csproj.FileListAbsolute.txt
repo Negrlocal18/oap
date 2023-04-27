@@ -1,0 +1,12 @@
+G:\ОАП\ytrt\bin\Debug\ytrt.exe.config
+G:\ОАП\ytrt\bin\Debug\ytrt.exe
+G:\ОАП\ytrt\bin\Debug\ytrt.pdb
+G:\ОАП\ytrt\obj\Debug\ytrt.csproj.AssemblyReference.cache
+G:\ОАП\ytrt\obj\Debug\ytrt.csproj.SuggestedBindingRedirects.cache
+G:\ОАП\ytrt\obj\Debug\ytrt.Form1.resources
+G:\ОАП\ytrt\obj\Debug\ytrt.Properties.Resources.resources
+G:\ОАП\ytrt\obj\Debug\ytrt.csproj.GenerateResource.cache
+G:\ОАП\ytrt\obj\Debug\ytrt.csproj.CoreCompileInputs.cache
+G:\ОАП\ytrt\obj\Debug\ytrt.exe
+G:\ОАП\ytrt\obj\Debug\ytrt.pdb
+G:\ОАП\ytrt\obj\Debug\ytrt.Form2.resources
