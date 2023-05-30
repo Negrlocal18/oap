@@ -1,0 +1,12 @@
+G:\ОАП\praktik23\praktik23\bin\Debug\praktik23.exe.config
+G:\ОАП\praktik23\praktik23\bin\Debug\praktik23.exe
+G:\ОАП\praktik23\praktik23\bin\Debug\praktik23.pdb
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.csproj.AssemblyReference.cache
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.csproj.SuggestedBindingRedirects.cache
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.Form1.resources
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.Properties.Resources.resources
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.csproj.GenerateResource.cache
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.csproj.CoreCompileInputs.cache
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.exe
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.pdb
+G:\ОАП\praktik23\praktik23\obj\Debug\praktik23.Form2.resources
