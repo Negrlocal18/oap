@@ -15,6 +15,7 @@ namespace praktik23
     public partial class Form2 : Form
     {
         Color colorResult;
+        Color historyColor;
         public Form2(Color color)
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace praktik23
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             ScrollBar scrollBar = (ScrollBar)numericUpDown.Tag;
             scrollBar.Value = (int)numericUpDown.Value;
-
+            UpdateColor();
         }
 
         private void Scroll_Red_Scroll(object sender, ScrollEventArgs e)
@@ -52,6 +53,7 @@ namespace praktik23
             ScrollBar scrollBar = (ScrollBar)sender;
             NumericUpDown numericUpDown = (NumericUpDown)scrollBar.Tag;
             numericUpDown.Value = scrollBar.Value;
+            UpdateColor();
 
         }
 
@@ -60,6 +62,7 @@ namespace praktik23
             ScrollBar scrollBar = (ScrollBar)sender;
             NumericUpDown numericUpDown = (NumericUpDown)scrollBar.Tag;
             numericUpDown.Value = scrollBar.Value;
+            UpdateColor();
 
         }
 
@@ -68,6 +71,7 @@ namespace praktik23
             ScrollBar scrollBar = (ScrollBar)sender;
             NumericUpDown numericUpDown = (NumericUpDown)scrollBar.Tag;
             numericUpDown.Value = scrollBar.Value;
+            UpdateColor();
 
         }
 
@@ -76,6 +80,7 @@ namespace praktik23
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             ScrollBar scrollBar = (ScrollBar)numericUpDown.Tag;
             scrollBar.Value = (int)numericUpDown.Value;
+            UpdateColor();
 
         }
 
@@ -84,11 +89,13 @@ namespace praktik23
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             ScrollBar scrollBar = (ScrollBar)numericUpDown.Tag;
             scrollBar.Value = (int)numericUpDown.Value;
+            UpdateColor();
 
         }
         private void UpdateColor()
         {
-            colorResult = Color.FromArgb(Scroll_Red.Value, Scroll_Green.Value, Scroll_Blue.Value); pictureBox1.BackColor = colorResult;
+            colorResult = Color.FromArgb(Scroll_Red.Value, Scroll_Green.Value, Scroll_Blue.Value); 
+            pictureBox1.BackColor = colorResult;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -114,6 +121,16 @@ namespace praktik23
         private void Scroll_Green_Scroll(object sender, ScrollEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 main=this.Owner as Form1;
+            if(main != null)
+            {
+                main.currentPen.Color = colorResult;
+            }
+            this.Close();
         }
     }
 }

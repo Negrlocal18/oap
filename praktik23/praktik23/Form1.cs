@@ -108,7 +108,13 @@ namespace praktik23
                     case DialogResult.Cancel:
                         return;
                 }
+                History.Clear();
+                historyCounter = 0;
+                Bitmap pic = new Bitmap(750, 500);
+                pictureBox1.Image = pic;
+                History.Add(new Bitmap(pictureBox1.Image));
             }
+            if (pictureBox1.Image == null)
             {
                 History.Clear();
                 historyCounter = 0;
@@ -116,6 +122,9 @@ namespace praktik23
                 pictureBox1.Image = pic;
                 History.Add(new Bitmap(pictureBox1.Image));
             }
+
+
+
 
         }
 
@@ -133,6 +142,11 @@ namespace praktik23
                     oldLocation = e.Location;
                     currentPath = new GraphicsPath();
                 }
+                if (e.Button == MouseButtons.Right)
+                {
+                    historyColor = currentPen.Color;
+                    currentPen.Color =Color.White;
+                }
             }
 
 
@@ -140,19 +154,20 @@ namespace praktik23
 
         private void toolStripButton5_MouseUp(object sender, MouseEventArgs e)
         {
-
             History.RemoveRange(historyCounter + 1, History.Count - historyCounter - 1);
             History.Add(new Bitmap(pictureBox1.Image));
             if (historyCounter + 1 < 10) historyCounter++;
             if (History.Count - 1 == 10) History.RemoveAt(0);
-
             drawing = false;
             try
             {
                 currentPath.Dispose();
             }
             catch { };
-
+            if (e.Button == MouseButtons.Right)
+            {
+                currentPen.Color = historyColor;
+            }
         }
 
         private void toolStripButton5_MouseMove(object sender, MouseEventArgs e)
@@ -208,6 +223,67 @@ namespace praktik23
                 }
                 else MessageBox.Show("История пуста");
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Form2 AddRec = new Form2(currentPen.Color);
+            AddRec.Owner = this;
+            AddRec.ShowDialog();
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog SaveDlg = new SaveFileDialog();
+            SaveDlg.Filter = "JPEG Image|*.jpg|BitmapImage|*.bmp|GIFImage|*.gif|PNGImage|*.png";
+            SaveDlg.Title = "Save an Image File";
+            SaveDlg.FilterIndex = 4; //По умолчанию будет выбрано последнее расширение *.png
+            SaveDlg.ShowDialog();
+            if (SaveDlg.FileName != "") //Если введено не пустое имя 
+            {
+                System.IO.FileStream fs =
+                (System.IO.FileStream)SaveDlg.OpenFile();
+                switch (SaveDlg.FilterIndex)
+                {
+                    case 1:
+                        this.pictureBox1.Image.Save(fs, ImageFormat.Jpeg);
+                        break;
+                    case 2:
+                        this.pictureBox1.Image.Save(fs, ImageFormat.Bmp);
+                        break;
+                    case 3:
+                        this.pictureBox1.Image.Save(fs, ImageFormat.Gif);
+                        break;
+                    case 4:
+                        this.pictureBox1.Image.Save(fs, ImageFormat.Png);
+                        break;
+
+                }
+                fs.Close();
+            }
+
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OP = new OpenFileDialog();
+            OP.Filter = "JPEG Image|*.jpg|BitmapImage|*.bmp|GIFImage|*.gif|PNGImage|*.png";
+            OP.Title = "Open an Image File";
+            OP.FilterIndex = 1; //По умолчанию будет выбрано первое расширение *.jpg И, когда пользователь укажет нужный путь к картинке, ее нужно будет загрузить в PictureBox: 
+            if (OP.ShowDialog() != DialogResult.Cancel)
+                pictureBox1.Load(OP.FileName);
+            pictureBox1.AutoSize = true;
         }
     }
 }
